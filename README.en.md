@@ -10,7 +10,7 @@ Speak, and Scribla puts finished text into the email, note or chat: punctuated,
 with the ums gone. It also counts, translates and answers questions. The audio
 stays on the device.
 
-[![Mac release](https://img.shields.io/github/v/release/alvlsk12345/scribla-releases?label=Mac&color=1f6feb)](https://github.com/alvlsk12345/scribla-releases/releases/latest)
+[![Mac release](https://img.shields.io/github/v/release/alvlsk12345/scribla-releases?color=1f6feb)](https://github.com/alvlsk12345/scribla-releases/releases/latest)
 [![App Store](https://img.shields.io/itunes/v/6800086470?label=App%20Store&color=0b7)](https://apps.apple.com/app/id6800086470)
 [![macOS 14+](https://img.shields.io/badge/macOS-14%2B-lightgrey)](#install-on-mac)
 [![iOS 17+](https://img.shields.io/badge/iOS-17%2B-lightgrey)](#install-on-iphone)

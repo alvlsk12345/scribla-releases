@@ -9,7 +9,7 @@
 Говорите — Scribla ставит готовый текст в письмо, заметку или чат: со знаками,
 без «э-э». Считает, переводит, отвечает на вопрос. Звук остаётся на устройстве.
 
-[![Версия для Mac](https://img.shields.io/github/v/release/alvlsk12345/scribla-releases?label=Mac&color=1f6feb)](https://github.com/alvlsk12345/scribla-releases/releases/latest)
+[![Версия для Mac](https://img.shields.io/github/v/release/alvlsk12345/scribla-releases?color=1f6feb)](https://github.com/alvlsk12345/scribla-releases/releases/latest)
 [![App Store](https://img.shields.io/itunes/v/6800086470?label=App%20Store&color=0b7)](https://apps.apple.com/app/id6800086470)
 [![macOS 14+](https://img.shields.io/badge/macOS-14%2B-lightgrey)](#установка-на-mac)
 [![iOS 17+](https://img.shields.io/badge/iOS-17%2B-lightgrey)](#установка-на-iphone)
