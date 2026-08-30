@@ -14,11 +14,11 @@ The dictionary no longer stretches the window. A long list folds into a single
 line with a counter; opened, it scrolls inside itself, and a search field appears
 once there are eight words or more.
 
-### 1.0.1 — 25 August 2026
+### 1.0.1 — 25 August 2026 ([image](https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v1.0.1))
 
-Published on scribla.io only; no separate notes were written for it.
+An interim build; no separate notes were written for it.
 
-### 1.0 — 17 August 2026
+### 1.0 — 17 August 2026 ([image](https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v1.0))
 
 The first Mac version: an icon in the menu bar, dictation on the right ⌘ in any
 window, an answer on ⌘ + ⌥ and a translation with **/** held down. The same four
