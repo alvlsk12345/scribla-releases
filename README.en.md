@@ -50,8 +50,14 @@ itself, offline included.
 An icon in the menu bar. Hold the right ⌘ and speak: the text lands at the cursor
 in any window. ⌘ + ⌥ answers what you said; add **/** for a translation.
 
-<img src="docs/img/mac/hud-rec-en-light.webp" width="420" alt="Recording pill">
-<img src="docs/img/mac/hud-answer-en-light.webp" width="560" alt="The answer at hand">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/mac/hud-rec-en-dark.webp">
+  <img src="docs/img/mac/hud-rec-en-light.webp" width="420" alt="Recording pill">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/mac/hud-answer-en-dark.webp">
+  <img src="docs/img/mac/hud-answer-en-light.webp" width="560" alt="The answer at hand">
+</picture>
 
 There is nothing to switch to: the app hears its key in any window. No emoji or
 word-by-word edit panels here — you have a real keyboard.

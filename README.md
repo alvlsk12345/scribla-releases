@@ -49,8 +49,14 @@
 Значок в строке меню. Держите правый ⌘, говорите — текст встаёт под курсор
 в любом окне. ⌘ + ⌥ — ответ на сказанное, с нажатым **/** — перевод.
 
-<img src="docs/img/mac/hud-rec-ru-light.webp" width="420" alt="Плашка записи">
-<img src="docs/img/mac/hud-answer-ru-light.webp" width="560" alt="Ответ под рукой">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/mac/hud-rec-ru-dark.webp">
+  <img src="docs/img/mac/hud-rec-ru-light.webp" width="420" alt="Плашка записи">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/mac/hud-answer-ru-dark.webp">
+  <img src="docs/img/mac/hud-answer-ru-light.webp" width="560" alt="Ответ под рукой">
+</picture>
 
 Переключаться никуда не надо: приложение слышит клавишу в любом окне.
 Панелей эмодзи и правки по словам здесь нет — у вас настоящая клавиатура.
