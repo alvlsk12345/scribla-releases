@@ -6,6 +6,7 @@
 #   bash tools/publish-release.sh              # выпустить то, что стоит на scribla.io
 #   bash tools/publish-release.sh --dry-run    # показать, что будет сделано
 #   bash tools/publish-release.sh 1.0.2        # взять именно эту версию
+#   bash tools/publish-release.sh --no-push    # не коммитить правки витрины
 #
 # Правда о свежей версии живёт в одном месте — в download/mac.json на сайте:
 # оттуда её берёт и сайт, и само установленное приложение, когда проверяет
@@ -16,8 +17,12 @@
 # Apple образа, значит подписаться под чужой сборкой.
 #
 # Что делает: тег mac-v<версия>, релиз с образом и заметками из mac.json,
-# правит номер, вес и SHA-256 в обоих README и заводит запись в CHANGELOG,
-# если её ещё нет.
+# правит номер, вес и SHA-256 в обоих README, заводит запись в CHANGELOG
+# на обоих языках — и коммитит эти четыре файла с пушем в main.
+#
+# Запускать после `Scripts/mac-release.sh --publish` в репозитории кода —
+# или не запускать вовсе: тот скрипт зовёт этот сам, когда выкладка на сайт
+# прошла. Повторный запуск ничего не портит: увидев готовый релиз, выходит.
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -26,11 +31,13 @@ REPO="alvlsk12345/scribla-releases"
 FEED="https://scribla.io/download/mac.json"
 
 DRY=""
+NOPUSH=""
 WANT=""
 for a in "$@"; do
   case "$a" in
     --dry-run) DRY="да" ;;
-    -h|--help) sed -n '2,20p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    --no-push) NOPUSH="да" ;;
+    -h|--help) sed -n '2,26p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) WANT="$a" ;;
   esac
 done
@@ -119,9 +126,9 @@ gh release create "$TAG" "$DMG" \
 # Номер, вес и отпечаток стоят на витрине в четырёх местах на два языка.
 # Правились они руками ровно до первого раза, когда не поправили: на сайте
 # это уже случалось, и лечили тем же — одним источником и машинной правкой.
-python3 - "$VERSION" "$BUILD" "$SHA" "$SIZE" "$SIZE_EN" <<'PY'
-import pathlib, re, sys
-version, build, sha, size, size_en = sys.argv[1:6]
+python3 - "$VERSION" "$BUILD" "$SHA" "$SIZE" "$SIZE_EN" "$META" <<'PY'
+import datetime, json, pathlib, re, sys
+version, build, sha, size, size_en, meta = sys.argv[1:7]
 
 for name, size_str, ver_label, build_label in (
     ("README.md", size, "Версия", "сборка"),
@@ -138,28 +145,45 @@ for name, size_str, ver_label, build_label in (
     p.write_text(s)
     print(" ", name, "поправлен")
 
-# Заготовка в CHANGELOG — только если этой версии там ещё нет.
-for name, head, absent in (
-    ("CHANGELOG.md", "## Mac", "Заметок к этой версии не писали."),
-    ("CHANGELOG.en.md", "## Mac", "No notes were written for this version."),
+# Запись в CHANGELOG — только если этой версии там ещё нет. Дата ставится
+# сегодняшняя: выпуск и есть сегодня. Раньше здесь стоял плейсхолдер, который
+# полагалось дописать руками, — то есть однажды не дописать.
+MONTHS = ("января февраля марта апреля мая июня июля августа сентября "
+          "октября ноября декабря").split()
+today = datetime.date.today()
+notes = (json.loads(meta).get("notes") or {})
+tag = f"https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v{version}"
+
+for name, lang, label, absent, date in (
+    ("CHANGELOG.md", "ru", "образ", "Заметок к этой версии не писали.",
+     f"{today.day} {MONTHS[today.month - 1]} {today.year}"),
+    ("CHANGELOG.en.md", "en", "image", "No notes were written for this version.",
+     today.strftime("%-d %B %Y")),
 ):
     p = pathlib.Path(name)
     s = p.read_text()
     if f"### {version} " in s:
         continue
-    lang = "ru" if name == "CHANGELOG.md" else "en"
-    import json, urllib.request
-    notes = json.loads(urllib.request.urlopen("https://scribla.io/download/mac.json").read())
-    body = (notes.get("notes") or {}).get(lang) or absent
-    date = "<!-- дата -->" if lang == "ru" else "<!-- date -->"
-    tag = f"https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v{version}"
-    label = "образ" if lang == "ru" else "image"
+    body = notes.get(lang) or notes.get("en") or absent
     entry = f"### {version} — {date} ([{label}]({tag}))\n\n{body}\n\n"
-    s = s.replace(head + "\n\n", head + "\n\n" + entry, 1)
+    s = s.replace("## Mac\n\n", "## Mac\n\n" + entry, 1)
     p.write_text(s)
-    print(" ", name, "— добавлена запись", version, "(проставьте дату)")
+    print(" ", name, "— добавлена запись", version)
 PY
+
+# ── Витрина следом за релизом ─────────────────────────────────────────
+#
+# Коммитим только свои четыре файла: в дереве могут лежать чужие правки,
+# и утащить их в коммит «выпуск такой-то» — верный способ потерять их след.
+if [ -z "$NOPUSH" ]; then
+  if [ -n "$(git status --porcelain README.md README.en.md CHANGELOG.md CHANGELOG.en.md)" ]; then
+    git add README.md README.en.md CHANGELOG.md CHANGELOG.en.md
+    git commit -q -m "Витрина: Scribla для Mac $VERSION"
+    git push -q origin HEAD && echo "  витрина обновлена и запушена"
+  fi
+else
+  echo "  правки витрины оставлены незакоммиченными (--no-push)"
+fi
 
 echo
 echo "Готово: https://github.com/$REPO/releases/tag/$TAG"
-echo "Осталось: проставить дату в CHANGELOG и закоммитить правки витрины."
