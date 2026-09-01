@@ -15,7 +15,7 @@
 [![iOS 17+](https://img.shields.io/badge/iOS-17%2B-lightgrey)](#установка-на-iphone)
 [![Цена](https://img.shields.io/badge/цена-бесплатно-success)](#сколько-это-стоит)
 
-### [⬇︎ Скачать для Mac](https://github.com/alvlsk12345/scribla-releases/releases/latest/download/Scribla-1.0.2.dmg) &nbsp;·&nbsp; [ Установить на iPhone](https://apps.apple.com/app/id6800086470) &nbsp;·&nbsp; [scribla.io](https://scribla.io)
+### [⬇︎ Скачать для Mac](https://github.com/alvlsk12345/scribla-releases/releases/latest/download/Scribla-1.0.3.dmg) &nbsp;·&nbsp; [ Установить на iPhone](https://apps.apple.com/app/id6800086470) &nbsp;·&nbsp; [scribla.io](https://scribla.io)
 
 [English](README.en.md) · [История версий](CHANGELOG.md) · [Все выпуски](https://github.com/alvlsk12345/scribla-releases/releases)
 
@@ -85,15 +85,15 @@ Scribla — клавиатура: переключились на неё и на
 
 | | |
 |---|---|
-| Версия | **1.0.2** (сборка 19) |
+| Версия | **1.0.3** (сборка 20) |
 | Система | macOS 14 и новее, Apple Silicon и Intel |
-| Размер | 25,1 МБ |
-| SHA-256 | `062ffad1955a57f7d96f24598c37171bf4439ff557bb943ce4c00b6144d84d94` |
+| Размер | 25,2 МБ |
+| SHA-256 | `9b0d5714275acf35ce5107b8773c96ceb92db91d05bd4d9a142856dcbfd3d758` |
 
 Отпечаток проверяется одной строкой:
 
 ```bash
-shasum -a 256 ~/Downloads/Scribla-1.0.2.dmg
+shasum -a 256 ~/Downloads/Scribla-1.0.3.dmg
 ```
 
 Установленное приложение само проверяет обновления и ставит их, приняв образ
@@ -117,7 +117,7 @@ shasum -a 256 ~/Downloads/Scribla-1.0.2.dmg
 
 | | Свежая версия | Где брать | Что изменилось |
 |---|---|---|---|
-| **Mac** | 1.0.2 | [GitHub Releases](https://github.com/alvlsk12345/scribla-releases/releases/latest) · [scribla.io](https://scribla.io/download/Scribla.dmg) | [CHANGELOG](CHANGELOG.md#mac) |
+| **Mac** | 1.0.3 | [GitHub Releases](https://github.com/alvlsk12345/scribla-releases/releases/latest) · [scribla.io](https://scribla.io/download/Scribla.dmg) | [CHANGELOG](CHANGELOG.md#mac) |
 | **iPhone** | 1.2.1 | [App Store](https://apps.apple.com/app/id6800086470) | [CHANGELOG](CHANGELOG.md#iphone) |
 
 Как это устроено: каждый выпуск для Mac получает тег `mac-v<версия>` и релиз
