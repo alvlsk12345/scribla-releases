@@ -16,7 +16,7 @@ stays on the device.
 [![iOS 17+](https://img.shields.io/badge/iOS-17%2B-lightgrey)](#install-on-iphone)
 [![Price](https://img.shields.io/badge/price-free-success)](#what-does-it-cost)
 
-### [⬇︎ Download for Mac](https://github.com/alvlsk12345/scribla-releases/releases/latest/download/Scribla-1.0.3.dmg) &nbsp;·&nbsp; [ Get it on iPhone](https://apps.apple.com/app/id6800086470) &nbsp;·&nbsp; [scribla.io](https://scribla.io/en/)
+### [⬇︎ Download for Mac](https://github.com/alvlsk12345/scribla-releases/releases/latest/download/Scribla-1.0.4.dmg) &nbsp;·&nbsp; [ Get it on iPhone](https://apps.apple.com/app/id6800086470) &nbsp;·&nbsp; [scribla.io](https://scribla.io/en/)
 
 [Русский](README.md) · [Changelog](CHANGELOG.md) · [All releases](https://github.com/alvlsk12345/scribla-releases/releases)
 
@@ -86,15 +86,15 @@ opens with a double click, with no Gatekeeper detour.
 
 | | |
 |---|---|
-| Version | **1.0.3** (build 20) |
+| Version | **1.0.4** (build 21) |
 | System | macOS 14 or later, Apple Silicon and Intel |
 | Size | 25.2 MB |
-| SHA-256 | `9b0d5714275acf35ce5107b8773c96ceb92db91d05bd4d9a142856dcbfd3d758` |
+| SHA-256 | `4c0e6e6e601f302b87599b08166e6b11cb35236b8402d027c77c6c81505752b4` |
 
 Check the digest with one line:
 
 ```bash
-shasum -a 256 ~/Downloads/Scribla-1.0.3.dmg
+shasum -a 256 ~/Downloads/Scribla-1.0.4.dmg
 ```
 
 The installed app checks for updates and installs them itself, accepting an image
@@ -118,7 +118,7 @@ no other way to get text into a keyboard.
 
 | | Current | Where to get it | What changed |
 |---|---|---|---|
-| **Mac** | 1.0.3 | [GitHub Releases](https://github.com/alvlsk12345/scribla-releases/releases/latest) · [scribla.io](https://scribla.io/download/Scribla.dmg) | [Changelog](CHANGELOG.md#mac) |
+| **Mac** | 1.0.4 | [GitHub Releases](https://github.com/alvlsk12345/scribla-releases/releases/latest) · [scribla.io](https://scribla.io/download/Scribla.dmg) | [Changelog](CHANGELOG.md#mac) |
 | **iPhone** | 1.2.1 | [App Store](https://apps.apple.com/app/id6800086470) | [Changelog](CHANGELOG.md#iphone) |
 
 How it works: every Mac release gets a `mac-v<version>` tag and a release holding
