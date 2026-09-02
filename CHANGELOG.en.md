@@ -8,6 +8,10 @@ Newest first. Mac builds live right here, in the
 
 ## Mac
 
+### 1.0.5 — 2 September 2026 ([image](https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v1.0.5))
+
+Scribla now takes tens of megabytes when idle instead of six hundred: the speech model is released after five minutes without dictation and comes back in a fraction of a second while you speak.
+
 ### 1.0.4 — 1 September 2026 ([image](https://github.com/alvlsk12345/scribla-releases/releases/tag/mac-v1.0.4))
 
 One sound instead of two: the clipboard swap behind pasting no longer shows up in clipboard-manager history. Text now reaches iPhone Mirroring — typed there instead of pasted. The bar at the top no longer runs into the MacBook notch. AI mode checks dates against today and never presents past events as upcoming. New: tap your chosen key right after the text lands and the model adds emoji to it; the key is set in Settings.
